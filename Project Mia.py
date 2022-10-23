@@ -42,7 +42,8 @@ def wishMe(): # Wish Function
 def takeCommand(): # It takes microphone command from the user and returns string output
     
     r = sr.Recognizer()
-    with sr.Microphone() as source:
+    with sr.Microphone() as source: 
+        r.adjust_for_ambient_noise(source)
         print("Listening...")
         r.pause_threshold = 0.5
         audio = r.listen(source)
